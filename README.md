@@ -4,7 +4,7 @@
 # Installation
 
 ```commandline
-python3 -m venv .venv
+python3 -m venv .venv --prompt oiiai
 . .venv/bin/activate
 
 pip install git+https://github.com/dickerdackel/oiiai
