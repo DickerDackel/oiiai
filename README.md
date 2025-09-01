@@ -5,6 +5,8 @@ _tw: flashing lights/epilepsy_
 # Installation
 
 ```commandline
+mkdir oiiai
+cd oiiai
 python3 -m venv .venv --prompt oiiai
 . .venv/bin/activate
 
