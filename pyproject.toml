@@ -1,6 +1,6 @@
 [project]
-name = "FIXME"
-description = "FIXME"
+name = "oiiai"
+description = "oiiai"
 version = "0.0.1"
 readme = "README.md"
 
@@ -18,14 +18,14 @@ classifiers = [
 license = "MIT"
 license-files = ["LICENSE"]
 
-dependencies = [ ]
+dependencies = [ 'pgcooldown', 'lfo', 'rpeasings', 'pygame-ce' ]
 
 [project.scripts]
-FIXME = "package.module:main"
+oiiai = "oiiai.__main__:main"
 
 [project.urls]
-homepage = "https://github.com/dickerdackel/FIXME"
-bugtracker = "https://github.com/DickerDackel/FIXME/issues"
+homepage = "https://github.com/dickerdackel/oiiai"
+bugtracker = "https://github.com/DickerDackel/oiiai/issues"
 
 [build-system]
 requires = ["setuptools"]

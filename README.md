@@ -1,38 +1,15 @@
-# FIXME project name
+# It's funny!  Laugh!
 
-tl;dr description here
 
-## Synopsis
+# Installation
 
-```console
-one-liner usage example
+```commandline
+python3 -m venv .venv
+. .venv/bin/activate
+
+pip install git+https://github.com/dickerdackel/oiiai
+# Will pull in lfo, rpeasings, pgcooldown as dependencies
+
+hash -r
+oiiai
 ```
-
-## Usage
-
-Detailed usage and sample code for libraries, full help and options for tools.
-
-## Installation
-
-Installation instructions + requirements (should come automagically with
-pyproject.toml)
-
-```console
-sample install session
-```
-
-## Support / Contributing
-
-Issues can be opened on [Github](https://github.com/dickerdackel/FIXME/issues)
-
-## Credits / Acknowledgements
-
-* Thanks to [Make a README](https://www.makeareadme.com/)
-
-## License
-
-FIXME
-
-This software is provided under the MIT license.
-
-See LICENSE file for details.
