@@ -39,6 +39,8 @@ def main():
     kick_sample = pygame.mixer.Sound(ASSETS / 'kick.wav')
     hihat_sample = pygame.mixer.Sound(ASSETS / 'hi-hat.wav')
     oiiai_sample = pygame.mixer.Sound(ASSETS / 'oiiai.wav')
+    synth_sample = pygame.mixer.Sound(ASSETS / 'psy-short.wav')
+    synth_sample.set_volume(0.5)
 
     img = pygame.image.load(ASSETS / 'cat.png')
     kett = sdl2.Texture.from_surface(renderer, pygame.transform.scale(img, (128, 128)))
@@ -51,10 +53,11 @@ def main():
     toggle_rect = (kett.get_rect().move_to(midleft=SCREEN.midleft),
                    kett.get_rect().move_to(midright=SCREEN.midright))
 
-    def play_sample_or_not(cooldown, sample):
+    def play_sample_or_not(cooldown, *samples):
         if cooldown.cold():
             cooldown.reset(wrap=True)
-            sample.play()
+            for s in samples:
+                s.play()
 
     running = True
     while running:
@@ -68,7 +71,7 @@ def main():
                 if e.key == pygame.K_ESCAPE:
                     running = False
 
-        play_sample_or_not(kick, kick_sample)
+        play_sample_or_not(kick, kick_sample, synth_sample)
         play_sample_or_not(hihat, hihat_sample)
         play_sample_or_not(oiiai, oiiai_sample)
 
