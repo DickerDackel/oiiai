@@ -27,7 +27,7 @@ def main():
     window = pygame.Window(title=TITLE, size=SCREEN.size)
     renderer = sdl2.Renderer(window)
 
-    orbit = LFO(16 * BEAT)
+    orbit = LFO(8 * BEAT)
     color = LFO(4 * BEAT)
     pump = LFO(2 * BEAT)
     rotate = LFO(16 * BEAT)
@@ -51,15 +51,15 @@ def main():
     toggle_rect = (kett.get_rect().move_to(midleft=SCREEN.midleft),
                    kett.get_rect().move_to(midright=SCREEN.midright))
 
-    def play_sample_or_not(name, cooldown, sample):
+    def play_sample_or_not(cooldown, sample):
         if cooldown.cold():
-            # print(f'{name} is cold')
             cooldown.reset(wrap=True)
             sample.play()
 
     running = True
     while running:
-        dt = min(clock.tick(FPS) / 1000.0, DT_MAX)
+        # No need to use dt here, LFOs and cooldown track their own time
+        clock.tick(FPS)
 
         for e in pygame.event.get():
             if e.type == pygame.QUIT:
@@ -68,9 +68,9 @@ def main():
                 if e.key == pygame.K_ESCAPE:
                     running = False
 
-        play_sample_or_not('kick', kick, kick_sample)
-        play_sample_or_not('hihat', hihat, hihat_sample)
-        play_sample_or_not('oiiai', oiiai, oiiai_sample)
+        play_sample_or_not(kick, kick_sample)
+        play_sample_or_not(hihat, hihat_sample)
+        play_sample_or_not(oiiai, oiiai_sample)
 
         renderer.draw_color = pygame.Color.from_hsva(color.sawtooth * 360, 100, 100, 100)
         renderer.clear()
