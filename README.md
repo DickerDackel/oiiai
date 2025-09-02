@@ -2,6 +2,9 @@
 
 _tw: flashing lights/epilepsy_
 
+_It also demonstrates pgcooldown (audio sample scheduling), lfo (all visual
+dynamics), rpeasings (on top of one of the LFOs)._
+
 # Installation
 
 ```commandline
